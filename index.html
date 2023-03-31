@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solve</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    input {
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: groove;
+      background-color: #eee;
+      width: 7rem;
+      height: 3rem;
+    }
+    .no-outline:focus {
+      outline: none;
+    }
+  </style>
+  <body>
+    <h1 class="my-4" style="text-align: center">
+      <i class="fa fa-duotone fa-book"></i>
+    </h1>
+    <div class="container-fluid my-4">
+      <ul
+        class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm"
+        id="pillNav2"
+        role="tablist"
+        style="
+          --bs-nav-link-color: var(--bs-white);
+          --bs-nav-pills-link-active-color: var(--bs-primary);
+          --bs-nav-pills-link-active-bg: var(--bs-white);
+        "
+      >
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active rounded-5"
+            id="home-tab2"
+            data-bs-toggle="tab"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            onclick="selectOperator(1)"
+          >
+            Multiplication
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link rounded-5"
+            id="profile-tab2"
+            data-bs-toggle="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            onclick="selectOperator(2)"
+          >
+            Addition
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link rounded-5"
+            id="contact-tab2"
+            data-bs-toggle="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            onclick="selectOperator(3)"
+          >
+            Substraction
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link rounded-5"
+            id="contact-tab2"
+            data-bs-toggle="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            onclick="selectOperator(4)"
+          >
+            Division
+          </button>
+        </li>
+      </ul>
+      <div class="my-4">
+        <ul
+          class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm"
+          id="pillNav2"
+          role="tablist"
+          style="
+            --bs-nav-link-color: var(--bs-white);
+            --bs-nav-pills-link-active-color: var(--bs-primary);
+            --bs-nav-pills-link-active-bg: var(--bs-white);
+          "
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active rounded-5"
+              id="home-tab2"
+              data-bs-toggle="tab"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              onclick="changeMinMax(2)"
+            >
+              2 Digit
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link rounded-5"
+              id="profile-tab2"
+              data-bs-toggle="tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              onclick="changeMinMax(3)"
+            >
+              3 Digit
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid px-5">
+      <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Solve This</h1>
+          <div class="row row-cols-auto">
+            <div class="container my-4 col" style="vertical-align: middle">
+              <span class="display-5 fw-bold mx-2" id="firstNumber">88</span>
+              <span class="display-5 fw-bold mx-3" id="operator">?</span>
+              <span class="display-5 fw-bold mx-2" id="secondNumber">88</span>
+              <input
+                type="number"
+                name=""
+                class="display-6 fw-bold no-outline my-3"
+                id="input"
+                style="
+                  border-top-style: hidden;
+                  border-right-style: hidden;
+                  border-left-style: hidden;
+                  border-bottom-style: groove;
+                "
+              />
+              <button
+                class="btn btn-primary btn-lg mx-2 my-3"
+                style="transform: translateY(-10px)"
+                type="button"
+                onclick="check()"
+              >
+                Check
+              </button>
+            </div>
+            <div
+              class="container my-4 row col"
+              style="vertical-align: middle"
+              id="result"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script src="app.js"></script>
+</html>
