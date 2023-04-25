@@ -4,9 +4,36 @@ const operatorEle = document.querySelector("#operator");
 const secondNumberEle = document.querySelector("#secondNumber");
 const inputEle = document.querySelector("#input");
 const resultEle = document.querySelector("#result");
+const menuBar = document.querySelector(".menu");
+const counter = document.querySelector(".counter");
 
 // Variable.
-let randomNumberOne, randomNumberTwo, result, MIN, MAX;
+let randomNumberOne,
+  randomNumberTwo,
+  result,
+  MIN,
+  MAX,
+  questionNumber = 1;
+
+const updateCounter = function () {
+  // the counter element in html whenver change happens
+  counter.textContent = questionNumber;
+};
+
+const resetCounter = function () {
+  // Reset the counter whenever the operation is changed or the digit
+  // size is changed.
+  questionNumber = 1;
+  updateCounter();
+  // console.log(questionNumber);
+};
+
+const incrementCounter = function () {
+  // Increase the question counter whenever a question is solved
+  questionNumber++;
+  updateCounter();
+  // console.log(questionNumber);
+};
 
 // icon for correct input
 const correctHtml = `<i class="fa fa-solid fa-circle-check" style="font-size: 5rem; color: green"></i>`;
@@ -34,6 +61,7 @@ function displayNumbers() {
   // Generate the random Numbers
   generateQuestion();
   inputEle.value = "";
+  counter.textContent = questionNumber;  // displays the counter of questions done.
   firstNumberEle.textContent = randomNumberOne;
   secondNumberEle.textContent = randomNumberTwo;
 }
@@ -124,6 +152,7 @@ function removeResult() {
 function check() {
   if (Number(inputEle.value) === result) {
     resultEle.innerHTML = correctHtml;
+    incrementCounter();
     displayNumbers();
   } else {
     resultEle.innerHTML = wrongHtml;
@@ -139,5 +168,16 @@ function main() {
   changeMinMax(2);
   displayNumbers();
 }
+
+////////////////////////////
+//////Event Handling///////
+//////////////////////////
+menuBar.addEventListener("click", (e) => {
+  if (e.target.classList.contains("menu-btn")) {
+    resetCounter();
+  } else {
+    return;
+  }
+});
 
 main();

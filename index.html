@@ -31,12 +31,20 @@
     .no-outline:focus {
       outline: none;
     }
+    #display-question {
+      position: relative;
+    }
+    .counter {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   </style>
   <body>
     <h1 class="my-4" style="text-align: center">
       <i class="fa fa-duotone fa-book"></i>
     </h1>
-    <div class="container-fluid my-4">
+    <div class="container-fluid my-4 menu">
       <ul
         class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm"
         id="pillNav2"
@@ -49,7 +57,7 @@
       >
         <li class="nav-item" role="presentation">
           <button
-            class="nav-link active rounded-5"
+            class="nav-link active rounded-5 menu-btn"
             id="home-tab2"
             data-bs-toggle="tab"
             type="button"
@@ -62,7 +70,7 @@
         </li>
         <li class="nav-item" role="presentation">
           <button
-            class="nav-link rounded-5"
+            class="nav-link rounded-5 menu-btn"
             id="profile-tab2"
             data-bs-toggle="tab"
             type="button"
@@ -75,7 +83,7 @@
         </li>
         <li class="nav-item" role="presentation">
           <button
-            class="nav-link rounded-5"
+            class="nav-link rounded-5 menu-btn"
             id="contact-tab2"
             data-bs-toggle="tab"
             type="button"
@@ -88,7 +96,7 @@
         </li>
         <li class="nav-item" role="presentation">
           <button
-            class="nav-link rounded-5"
+            class="nav-link rounded-5 menu-btn"
             id="contact-tab2"
             data-bs-toggle="tab"
             type="button"
@@ -113,7 +121,7 @@
         >
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link active rounded-5"
+              class="nav-link active rounded-5 menu-btn"
               id="home-tab2"
               data-bs-toggle="tab"
               type="button"
@@ -126,7 +134,7 @@
           </li>
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link rounded-5"
+              class="nav-link rounded-5 menu-btn"
               id="profile-tab2"
               data-bs-toggle="tab"
               type="button"
@@ -142,7 +150,8 @@
     </div>
     <div class="container-fluid px-5">
       <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-        <div class="container-fluid py-5">
+        <div class="container-fluid py-5" id="display-question">
+          <button type="button" class="btn btn-info counter">?</button>
           <h1 class="display-5 fw-bold">Solve This</h1>
           <div class="row row-cols-auto">
             <div class="container my-4 col" style="vertical-align: middle">
