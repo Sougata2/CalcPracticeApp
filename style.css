@@ -1,0 +1,13 @@
+.option-disk {
+  width: fit-content;
+  border-radius: 100%;
+  padding: 2.1rem 1rem;
+  margin: 1rem 0;
+  background-color: rgb(203, 207, 207);
+}
+
+@media (min-width:979px) {
+    .option-disk{
+        margin: 1rem auto;
+    }
+}
